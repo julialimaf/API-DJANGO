@@ -27,10 +27,10 @@ def get_users(request):
 @api_view(['GET','POST','PUT','DELETE'])
 def user_manager(request):
     if request.method == 'GET':
-        user_nickname = request.GET.get('user', None)  # pega o parâmetro ou None
+        user_nickname = request.GET.get('user', None)  
 
-        if user_nickname:
-            # busca apenas um usuário
+        if user_nickname:       
+           
             try:
                 user = User.objects.get(pk=user_nickname)
             except User.DoesNotExist:
@@ -38,27 +38,11 @@ def user_manager(request):
             serializer = UserSerializer(user)
             return Response(serializer.data)
         else:
-            # se não houver parâmetro, retorna todos os usuários
+            
             users = User.objects.all()
             serializer = UserSerializer(users, many=True)
             return Response(serializer.data)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
 
 # def databaseEmDjango(request):
 #    data = User.objects.all(pk=)

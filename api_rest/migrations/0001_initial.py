@@ -18,6 +18,11 @@ class Migration(migrations.Migration):
                 ('user_name', models.CharField(default='', max_length=150)),
                 ('user_email', models.CharField(max_length=128)),
                 ('user_age', models.IntegerField(default=0)),
+                ('user_password', models.CharField(default='', max_length=128)),
+                ('user_cpf', models.CharField(default='', max_length=11)),
+                ('user_phone', models.CharField(default='', max_length=15)),
+                ('user_city', models.CharField(default='', max_length=128)),
+                ('user_birthdate', models.DateField(blank=True, null=True)),
             ],
         ),
     ]
