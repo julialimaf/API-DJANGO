@@ -24,7 +24,7 @@ def get_users(request):
     return Response(status=status.HTTP_400_BAD_REQUEST) 
 
 
-@api_view(['GET','POST','PUT','DELETE'])
+@api_view(['POST, GET','DELETE', 'PUT'])
 def user_manager(request):
     if request.method == 'GET':
         user_nickname = request.GET.get('user', None)  
@@ -43,6 +43,15 @@ def user_manager(request):
             serializer = UserSerializer(users, many=True)
             return Response(serializer.data)
         
+from django.shortcuts import render
+
+@api_view(['POST'])
+def cadastro(request):
+    return render(request, 'cadastro.html')  # seu template de cadastro
+
+
+
+
 
 # def databaseEmDjango(request):
 #    data = User.objects.all(pk=)

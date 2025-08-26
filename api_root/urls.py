@@ -6,6 +6,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('api_rest.urls'), name='api_rest_urls'),
     path('', views.get_users, name='get_all_users'), 
-     path('data/',views.user_manager, name='user_manager'),
+    path('data/',views.user_manager, name='user_manager'),
+    path('cadastro/', views.cadastro, name='user_cadastro'),
 
 ]
